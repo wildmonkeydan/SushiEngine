@@ -19,8 +19,6 @@
 
 #include "raymob.h" // This header can replace 'raylib.h' and includes additional functions related to Android.
 #include <math.h>
-#define CUTE_TILED_IMPLEMENTATION
-#include "cute_tiled.h"
 
 //------------------------------------------------------------------------------------
 // Program main entry point
@@ -38,8 +36,8 @@ int main(void)
     int dataSize = 0;
     unsigned char* mapData = LoadFileData("test.tmj", &dataSize);
 
-    cute_tiled_map_t* map = cute_tiled_load_map_from_memory(mapData, dataSize, 0);
-    TraceLog(LOG_INFO, "%d  %d\n", map->width, map->height);
+    //cute_tiled_map_t* map = cute_tiled_load_map_from_memory(mapData, dataSize, 0);
+    //TraceLog(LOG_INFO, "%d  %d\n", map->width, map->height);
 
     SetTargetFPS(60);               // Set our game to run at 60 frames-per-second
     //---------------------------------------------------------------------------------------
@@ -60,7 +58,7 @@ int main(void)
 
         //DrawTexture(texture, screenWidth/2 - texture.width/2, screenHeight/2 - texture.height/2, WHITE);
 
-        DrawText("this IS a texture!", 360, 370, 10, GRAY);
+        DrawText("HELLO", 360, 370, 10, GRAY);
 
         EndDrawing();
         //----------------------------------------------------------------------------------
@@ -68,7 +66,7 @@ int main(void)
 
     // De-Initialization
     //--------------------------------------------------------------------------------------
-    cute_tiled_free_map(map);
+    //cute_tiled_free_map(map);
     UnloadFileData(mapData);
 
     CloseWindow();                // Close window and OpenGL context
